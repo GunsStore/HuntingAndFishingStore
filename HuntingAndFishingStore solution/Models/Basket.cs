@@ -9,38 +9,47 @@ namespace Models
     {
         public Basket()
         {
-            Clothings = new HashSet<Clothing>();
-            Batons = new HashSet<Baton>();
-            Tazers = new HashSet<Tazer>();
-            Flashlights = new HashSet<Flashlight>();
-            Knives = new HashSet<Knife>();
-            Scopes = new HashSet<Scope>();
-            Holsters = new HashSet<Holster>();
-            Firearms  = new HashSet<Firearm>();
-            Rounds = new HashSet<Round>();
+            BasketClothings = new HashSet<BasketClothing>();
+            BatonBaskets = new HashSet<BasketBaton>();
+            BasketTazers = new HashSet<BasketTazer>();
+            BasketFlashlights = new HashSet<BasketFlashlight>();
+            BasketKnives = new HashSet<BasketKnife>();
+            BasketScopes = new HashSet<BasketScope>();
+            BasketHolsters = new HashSet<BasketHolster>();
+            BasketFirearms  = new HashSet<BasketFirearm>();
+            BasketRounds = new HashSet<BasketRound>();
         }
 
         [Key]
         public int Id { get; set; }
 
         public virtual Order Order{ get; set; }
+        public int? OrderId { get; set; }
 
-        public virtual ICollection<Clothing> Clothings { get; set; }
+        public decimal PriceOfAllProducts { get; set; }
 
-        public virtual ICollection<Baton> Batons { get; set; }
+        public int ProductCount { get; set; }
 
-        public virtual ICollection<Tazer> Tazers { get; set; }
+        public User User { get; set; }
 
-        public virtual ICollection<Flashlight> Flashlights { get; set; }
+        public int UserId { get; set; }
 
-        public virtual ICollection<Knife> Knives { get; set; }
+        public virtual ICollection<BasketClothing> BasketClothings { get; set; }
 
-        public virtual ICollection<Scope> Scopes { get; set; }
+        public virtual ICollection<BasketBaton> BatonBaskets { get; set; }
 
-        public virtual ICollection<Holster> Holsters { get; set; }
+        public virtual ICollection<BasketTazer> BasketTazers { get; set; }
 
-        public virtual ICollection<Firearm> Firearms { get; set; }
+        public virtual ICollection<BasketFlashlight> BasketFlashlights { get; set; }
 
-        public virtual ICollection<Round> Rounds { get; set; }
+        public virtual ICollection<BasketKnife> BasketKnives { get; set; }
+
+        public virtual ICollection<BasketScope> BasketScopes { get; set; }
+
+        public virtual ICollection<BasketHolster> BasketHolsters { get; set; }
+
+        public virtual ICollection<BasketFirearm> BasketFirearms { get; set; }
+
+        public virtual ICollection<BasketRound> BasketRounds { get; set; }
     }
 }

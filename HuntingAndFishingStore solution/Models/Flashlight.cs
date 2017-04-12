@@ -10,7 +10,7 @@ namespace Models
     {
         public Flashlight()
         {
-            Baskets = new HashSet<Basket>();    
+            BasketFlashlights = new HashSet<BasketFlashlight>();    
         }
 
         public int Id { get; set; }
@@ -22,10 +22,11 @@ namespace Models
         public decimal Price { get; set; }
 
         public string BatteryType { get; set; }
+        public int Quantity { get; set; }
 
         public virtual Category Category { get; set; }
 
-        public virtual ICollection<Basket> Baskets { get; set; }
+        public virtual ICollection<BasketFlashlight> BasketFlashlights { get; set; }
 
     }
 }

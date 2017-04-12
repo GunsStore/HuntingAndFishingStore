@@ -10,7 +10,7 @@ namespace Models
     {
         public Baton()
         {
-            Baskets = new HashSet<Basket>();    
+            BatonBaskets = new HashSet<BasketBaton>();    
         }
 
         public int Id { get; set; }
@@ -22,9 +22,10 @@ namespace Models
         public decimal Price { get; set; }
 
         public double Weight { get; set; }
+        public int Quantity { get; set; }
 
         public virtual Category Category { get; set; }
 
-        public virtual ICollection<Basket> Baskets { get; set; }
+        public virtual ICollection<BasketBaton> BatonBaskets { get; set; }
     }
 }

@@ -41,11 +41,36 @@ namespace Data
 
         public virtual DbSet<User> Users { get; set; }
 
+        public virtual DbSet<BasketBaton> BasketBatons { get; set; }
+
+        public virtual DbSet<BasketClothing> BasketClothings { get; set; }
+
+        public virtual DbSet<BasketFirearm> BasketFirearms { get; set; }
+
+        public virtual DbSet<BasketFlashlight> BasketFlashlights { get; set; }
+
+        public virtual DbSet<BasketHolster> BasketHolsters { get; set; }
+
+        public virtual DbSet<BasketKnife> BasketKnives { get; set; }
+
+        public virtual DbSet<BasketRound> BasketRounds { get; set; }
+
+        public virtual DbSet<BasketScope> BasketScopes { get; set; }
+
+        public virtual DbSet<BasketTazer> BasketTazers { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new OrderConfiguration());
+            //modelBuilder.Entity<Basket>().HasMany(b => b.Batons).WithMany(b => b.Baskets).Map(m =>
+            //{
+            //    m.MapLeftKey("BasketId");
+            //    m.MapRightKey("BatonId");
+            //    m.ToTable("BatonBaskets");
+            //});
+        base.
 
-            base.OnModelCreating(modelBuilder);
+        OnModelCreating(modelBuilder);
         }
     }
 }

@@ -31,6 +31,8 @@ namespace Models
         public bool IsDeliveried { get; set; }
 
         public decimal PriceOfAllProducts { get; set; }
+        [MaxLength(1000)]
+        public string AdditionalOrderingInformation { get; set; }
 
         public int BasketId { get; set; }
 

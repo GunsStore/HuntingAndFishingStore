@@ -12,7 +12,7 @@ namespace Models
         {
             this.Rounds = new HashSet<Round>();
             this.Scopes = new HashSet<Scope>();
-            Baskets = new HashSet<Basket>();
+            BasketFirearms = new HashSet<BasketFirearm>();
         }
 
         public int Id { get; set; }
@@ -24,6 +24,7 @@ namespace Models
         public decimal Price { get; set; }
 
         public string Model { get; set; }
+        public int Quantity { get; set; }
 
         public virtual Category Category { get; set; }
 
@@ -31,7 +32,7 @@ namespace Models
 
         public virtual ICollection<Scope> Scopes { get; set; }
 
-        public virtual ICollection<Basket> Baskets { get; set; }
+        public virtual ICollection<BasketFirearm> BasketFirearms { get; set; }
 
 
     }

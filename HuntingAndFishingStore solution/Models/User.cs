@@ -16,6 +16,7 @@ namespace Models
             IdentityCardNumber = new char[9];
             PostCode = new char[4];
             Orders = new HashSet<Order>();
+            Baskets = new HashSet<Basket>();
         }
 
         [Key]
@@ -57,5 +58,6 @@ namespace Models
         public char[] IdentityCardNumber { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
+        public virtual  ICollection<Basket> Baskets { get; set; }
     }
 }

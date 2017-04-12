@@ -10,7 +10,7 @@ namespace Models
     {
         public Tazer()
         {
-            Baskets = new HashSet<Basket>();
+            BasketTazers = new HashSet<BasketTazer>();
         }
 
         public int Id { get; set; }
@@ -24,7 +24,9 @@ namespace Models
         public decimal Price { get; set; }
 
         public double Voltage { get; set; }
+        public int Quantity { get; set; }
 
-        public virtual ICollection<Basket> Baskets{ get; set; }
+
+        public virtual ICollection<BasketTazer> BasketTazers{ get; set; }
     }
 }

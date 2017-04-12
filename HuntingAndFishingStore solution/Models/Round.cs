@@ -11,7 +11,7 @@ namespace Models
         public Round()
         {
             this.Firearms = new HashSet<Firearm>();
-            Baskets = new HashSet<Basket>();
+            BasketRounds = new HashSet<BasketRound>();
         }
 
         public int Id { get; set; }
@@ -23,12 +23,13 @@ namespace Models
         public decimal Price { get; set; }
 
         public string Description { get; set; }
+        public int Quantity { get; set; }
 
         public virtual Category Category { get; set; }
 
         public ICollection<Firearm> Firearms { get; set; }
 
-        public virtual ICollection<Basket> Baskets { get; set; }
+        public virtual ICollection<BasketRound> BasketRounds { get; set; }
 
     }
 }
