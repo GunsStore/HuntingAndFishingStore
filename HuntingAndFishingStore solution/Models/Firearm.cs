@@ -12,6 +12,7 @@ namespace Models
         {
             this.Rounds = new HashSet<Round>();
             this.Scopes = new HashSet<Scope>();
+            Baskets = new HashSet<Basket>();
         }
 
         public int Id { get; set; }
@@ -29,5 +30,9 @@ namespace Models
         public virtual ICollection<Round> Rounds { get; set; }
 
         public virtual ICollection<Scope> Scopes { get; set; }
+
+        public virtual ICollection<Basket> Baskets { get; set; }
+
+
     }
 }

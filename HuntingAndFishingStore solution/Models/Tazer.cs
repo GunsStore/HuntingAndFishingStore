@@ -8,6 +8,11 @@ namespace Models
 {
     public class Tazer
     {
+        public Tazer()
+        {
+            Baskets = new HashSet<Basket>();
+        }
+
         public int Id { get; set; }
 
         public virtual Category Category { get; set; }
@@ -19,5 +24,7 @@ namespace Models
         public decimal Price { get; set; }
 
         public double Voltage { get; set; }
+
+        public virtual ICollection<Basket> Baskets{ get; set; }
     }
 }

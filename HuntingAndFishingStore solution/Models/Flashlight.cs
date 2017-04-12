@@ -8,6 +8,11 @@ namespace Models
 {
     public class Flashlight
     {
+        public Flashlight()
+        {
+            Baskets = new HashSet<Basket>();    
+        }
+
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -19,5 +24,8 @@ namespace Models
         public string BatteryType { get; set; }
 
         public virtual Category Category { get; set; }
+
+        public virtual ICollection<Basket> Baskets { get; set; }
+
     }
 }

@@ -1,18 +1,12 @@
+using Data.EntityConfiguration;
+
 namespace Data
 {
     using Models;
-    using System;
     using System.Data.Entity;
-    using System.Linq;
 
     public class GunStoreContext : DbContext
     {
-        // Your context has been configured to use a 'GunStoreContext' connection string from your application's 
-        // configuration file (App.config or Web.config). By default, this connection string targets the 
-        // 'Data.GunStoreContext' database on your LocalDb instance. 
-        // 
-        // If you wish to target a different database and/or database provider, modify the 'GunStoreContext' 
-        // connection string in the application configuration file.
         public GunStoreContext()
             : base("name=GunStoreContext")
         {
@@ -38,11 +32,20 @@ namespace Data
         public virtual DbSet<Scope> Scopes { get; set; }
 
         public virtual DbSet<Tazer> Tazers { get; set; }
-    }
 
-    //public class MyEntity
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //}
+        public virtual DbSet<Basket> Baskets { get; set; }
+
+        public virtual DbSet<Order> Orders { get; set; }
+
+        public virtual DbSet<Payment> Payments { get; set; }
+
+        public virtual DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new OrderConfiguration());
+
+            base.OnModelCreating(modelBuilder);
+        }
+    }
 }

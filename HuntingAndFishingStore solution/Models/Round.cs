@@ -11,6 +11,7 @@ namespace Models
         public Round()
         {
             this.Firearms = new HashSet<Firearm>();
+            Baskets = new HashSet<Basket>();
         }
 
         public int Id { get; set; }
@@ -26,5 +27,8 @@ namespace Models
         public virtual Category Category { get; set; }
 
         public ICollection<Firearm> Firearms { get; set; }
+
+        public virtual ICollection<Basket> Baskets { get; set; }
+
     }
 }
