@@ -10,7 +10,7 @@ namespace Data
         public GunStoreContext()
             : base("name=GunStoreContext")
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<GunStoreContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<GunStoreContext>());
         }
         
         public virtual DbSet<Category> Categories { get; set; }

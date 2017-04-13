@@ -14,6 +14,10 @@ namespace Data.EntityConfiguration
         {
             HasRequired(b => b.Basket)
                 .WithOptional(o => o.Order);
+
+            HasRequired(u => u.User)
+                .WithMany(o => o.Orders)
+                .HasForeignKey(u => u.UserId);
         }
     }
 }

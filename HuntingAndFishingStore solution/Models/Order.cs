@@ -1,7 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Models
+﻿namespace Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;
@@ -31,6 +28,7 @@ namespace Models
         public bool IsDeliveried { get; set; }
 
         public decimal PriceOfAllProducts { get; set; }
+
         [MaxLength(1000)]
         public string AdditionalOrderingInformation { get; set; }
 

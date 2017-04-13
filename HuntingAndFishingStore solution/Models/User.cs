@@ -12,9 +12,6 @@ namespace Models
     {
         public User()
         {
-            PersonalNumber = new char[10];    
-            IdentityCardNumber = new char[9];
-            PostCode = new char[4];
             Orders = new HashSet<Order>();
             Baskets = new HashSet<Basket>();
         }
@@ -23,41 +20,35 @@ namespace Models
         public int Id { get; set; }
 
         [Required]
-        [MinLength(5),MaxLength(25)]
+        [MinLength(5,ErrorMessage = "Username must be at least 5 symbols!"),MaxLength(25,ErrorMessage = "Username is up to 25 symbols long!")]
         public string Username{ get; set; }
 
-        [Required]
-        [MinLength(5), MaxLength(25)]
+        [Required(ErrorMessage = "Password is required!")]
+        [MinLength(5,ErrorMessage = "Password must be at least 5 symbols!")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required]
-        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "Email is required!")]
         public string Email { get; set; }
 
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
-        [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
         public string Address { get; set; }
 
         public string City { get; set; }
 
-        [Column(TypeName = "char(4)")]
-        public char[] PostCode{ get; set; }
+        public string PostCode{ get; set; }
+  
+        public string PersonalNumber { get; set; }
 
-        [Required]
-        [Column(TypeName = "char(10)")]
-        public char[] PersonalNumber { get; set; }
-
-        [Required]
-        [Column(TypeName = "char(9)")]
-        public char[] IdentityCardNumber { get; set; }
+        public string IdentityCardNumber { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
+
         public virtual  ICollection<Basket> Baskets { get; set; }
     }
 }
