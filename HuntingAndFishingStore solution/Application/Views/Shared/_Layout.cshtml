@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Hunting and Fishing</title>
+    <meta charset="utf-8">
+    <title>Bootshop online Shopping cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link id="callCss" rel="stylesheet" href="../../Scripts/bootshop/bootstrap.min.css" media="screen" />
+    <link href="../../Content/css/base.css" rel="stylesheet" media="screen" />
+    <link href="../../Content/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="../../Content/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="../../Scripts/prettify.js" rel="stylesheet" />
+    <style type="text/css" id="enject"></style>
+</head>
+
+<body>
+<div id="logoArea" class="navbar">
+    <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </a>
+    <div class="navbar-inner">
+        <a class="brand"><img src="../../Content/img/logo.jpg" style="width: 193px; height: 47px" alt="Bootsshop"></a>
+
+        <ul id="topMenu" class="nav pull-right">
+            <li class=""><a href="">Specials Offer</a></li>
+            <li class=""><a href="@*normal.html*@">Delivery</a></li>
+            <li class=""><a href="@*contact.html*@">Contact</a></li>
+            @*<li class="">@Html.ActionLink("Login", "LogIn", "Account")</li>*@
+            @*<li class="">@Html.ActionLink("Register", "Register", "Account")</li>*@
+
+        </ul>
+            
+    </div>
+</div>
+    @RenderBody()
+
+
+</body>
+</html>
