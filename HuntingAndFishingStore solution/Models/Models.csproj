@@ -53,6 +53,7 @@
     <Compile Include="Baton.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="BasketClothing.cs" />
+    <Compile Include="Dtos\LoginDto.cs" />
     <Compile Include="Flashlight.cs" />
     <Compile Include="Holster.cs" />
     <Compile Include="Clothing.cs" />

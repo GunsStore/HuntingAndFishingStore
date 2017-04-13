@@ -13,5 +13,15 @@ namespace Application.Controllers
         {
             return View("~/Views/Home/Index.cshtml");
         }
+
+        public ActionResult LoggedinUserIndex()
+        {
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            ModelState.AddModelError("Error","Must be loggedin");
+            return RedirectToAction("Login", "Account");
+        }
     }
 }

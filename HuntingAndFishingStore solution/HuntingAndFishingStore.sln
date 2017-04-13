@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{37AD067B-56EC-4ADA-AC45-C909A88CB894}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encrypt and Decrypt", "Encrypt and Decrypt\Encrypt and Decrypt.csproj", "{26ED4248-FF8A-4B60-846B-376AC56435FB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{37AD067B-56EC-4ADA-AC45-C909A88CB894}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37AD067B-56EC-4ADA-AC45-C909A88CB894}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37AD067B-56EC-4ADA-AC45-C909A88CB894}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26ED4248-FF8A-4B60-846B-376AC56435FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26ED4248-FF8A-4B60-846B-376AC56435FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26ED4248-FF8A-4B60-846B-376AC56435FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26ED4248-FF8A-4B60-846B-376AC56435FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

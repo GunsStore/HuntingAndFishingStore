@@ -1,11 +1,12 @@
-﻿
-using System;
+﻿using System;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web.Mvc;
 using Data;
 using Models;
+using Models.Dtos;
 using static Application.Controllers.Validations.Validations;
 
 namespace Application.Controllers
@@ -30,7 +31,7 @@ namespace Application.Controllers
                 }
                 if (IsEmailExists(user.Email))
                 {
-                    ModelState.AddModelError("email",$"Email {user.Email} is already taken!");
+                    ModelState.AddModelError("email", $"Email {user.Email} is already taken!");
                     return View();
                 }
 
@@ -44,6 +45,47 @@ namespace Application.Controllers
                 }
             }
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginDto user)
+        {
+            using (var context = new GunStoreContext())
+            {
+                try
+                {
+                    var encryptPassword = EncryptPassword(user.Password);
+                    var member = context.Users
+                        .FirstOrDefault(u => u.Email == user.Email &&
+                                        u.Password == encryptPassword);
+
+                    if (member != null)
+                    {
+                        Session["UserId"] = Convert.ToString(member.Id);
+                        Session["Username"] = member.Username;
+                        ModelState.Clear();
+                        return RedirectToAction("LoggedinUserIndex","Home");
+                    }
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("emailandpassword", "Invalid email or password!");
+                }
+            }
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            ModelState.Clear();
+            return RedirectToAction("Index", "Home");
         }
 
         #region 
@@ -73,13 +115,12 @@ namespace Application.Controllers
                 }
                 memoryStream.Close();
             }
+
             return Convert.ToBase64String(cipherTextBytes);
         }
 
-        //Decryption https://social.msdn.microsoft.com/Forums/vstudio/en-US/d6a2836a-d587-4068-8630-94f4fb2a2aeb/encrypt-and-decrypt-a-string-in-c?forum=csharpgeneral
-
-
         #endregion
 
+        
     }
 }
