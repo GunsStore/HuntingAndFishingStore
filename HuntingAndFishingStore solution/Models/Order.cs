@@ -7,7 +7,7 @@
     {
         public Order()
         {
-            IsDeliveried = false;
+            IsDelivered = false;
         }
 
         [Key]
@@ -25,7 +25,7 @@
             set { DeliveryDate = OrderDate.AddDays(7); }
         }
 
-        public bool IsDeliveried { get; set; }
+        public bool IsDelivered { get; set; }
 
         public decimal PriceOfAllProducts { get; set; }
 
