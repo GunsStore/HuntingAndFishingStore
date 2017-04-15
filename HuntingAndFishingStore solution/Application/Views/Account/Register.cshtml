@@ -5,17 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Register</h2>
+<h2 align="center">Register</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-vertical">
-        <h4>User</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div  align="justify">
+        <div  align="center">
             @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
             <div >
                 @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
@@ -23,7 +22,7 @@
             </div>
         </div>
 
-        <div align="justify">
+        <div align="center">
             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
             <div >
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
@@ -31,7 +30,7 @@
             </div>
         </div>
 
-        <div align="justify">
+        <div align="center">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div >
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
@@ -39,7 +38,7 @@
             </div>
         </div>
 
-        <div align="justify">
+        <div align="center">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div >
                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
@@ -47,7 +46,7 @@
             </div>
         </div>
 
-        <div align="justify">
+        <div align="center">
             @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div >
                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
@@ -55,7 +54,7 @@
             </div>
         </div>
 
-        <div align="justify">
+        <div align="center">
             @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
             <div >
                 @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
@@ -63,7 +62,7 @@
             </div>
         </div>
 
-        <div align="justify">
+        <div align="center">
             @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
             <div >
                 @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
@@ -71,7 +70,7 @@
             </div>
         </div>
 
-        <div align="justify">
+        <div align="center">
             @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
             <div >
                 @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
@@ -79,7 +78,7 @@
             </div>
         </div>
 
-        <div align="justify">
+        <div align="center">
             @Html.LabelFor(model => model.PostCode, htmlAttributes: new { @class = "control-label col-md-2" })
             <div >
                 @Html.EditorFor(model => model.PostCode, new { htmlAttributes = new { @class = "form-control" } })
@@ -87,7 +86,7 @@
             </div>
         </div>
 
-        <div align="justify">
+        <div align="center">
             @Html.LabelFor(model => model.PersonalNumber, htmlAttributes: new { @class = "control-label col-md-2" })
             <div >
                 @Html.EditorFor(model => model.PersonalNumber, new { htmlAttributes = new { @class = "form-control" } })
@@ -95,7 +94,7 @@
             </div>
         </div>
 
-        <div align="justify">
+        <div align="center">
             @Html.LabelFor(model => model.IdentityCardNumber, htmlAttributes: new { @class = "control-label col-md-2" })
             <div >
                 @Html.EditorFor(model => model.IdentityCardNumber, new { htmlAttributes = new { @class = "form-control" } })
@@ -103,9 +102,9 @@
             </div>
         </div>
 
-        <div align="justify">
+        <div align="center">
             <div >
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Register" class="btn btn-default" />
             </div>
         </div>
     </div>

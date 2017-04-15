@@ -41,7 +41,7 @@ namespace Application.Controllers
                     context.Users.Add(user);
                     context.SaveChanges();
                     ModelState.Clear();
-                    return View("~/Views/Home/Index.cshtml");
+                    return RedirectToAction("Login");
                 }
             }
             return View();
@@ -58,27 +58,21 @@ namespace Application.Controllers
         {
             using (var context = new GunStoreContext())
             {
-                try
-                {
-                    var encryptPassword = EncryptPassword(user.Password);
-                    var member = context.Users
-                        .FirstOrDefault(u => u.Email == user.Email &&
-                                        u.Password == encryptPassword);
+                var encryptPassword = EncryptPassword(user.Password);
+                var member = context.Users
+                    .FirstOrDefault(u => u.Email == user.Email &&
+                                         u.Password == encryptPassword);
 
-                    if (member != null)
-                    {
-                        Session["UserId"] = Convert.ToString(member.Id);
-                        Session["Username"] = member.Username;
-                        ModelState.Clear();
-                        return RedirectToAction("LoggedinUserIndex","Home");
-                    }
-                }
-                catch (Exception)
+                if (member != null)
                 {
-                    ModelState.AddModelError("emailandpassword", "Invalid email or password!");
+                    Session["UserId"] = Convert.ToString(member.Id);
+                    Session["Username"] = member.Username;
+                    ModelState.Clear();
+                    return RedirectToAction("LoggedinUserIndex", "Home");
                 }
+                ModelState.AddModelError("email and password", "Invalid email or password!");
+                return View();
             }
-            return View();
         }
 
         public ActionResult Logout()
