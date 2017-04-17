@@ -17,6 +17,8 @@ namespace Models
 
         public virtual Category Category { get; set; }
 
+        public byte[] Image { get; set; }
+
         public string Name { get; set; }
 
         public string Description { get; set; }

@@ -55,6 +55,7 @@
     <Compile Include="BasketClothing.cs" />
     <Compile Include="Dtos\AdminDto.cs" />
     <Compile Include="Dtos\LoginDto.cs" />
+    <Compile Include="Dtos\ProductDto.cs" />
     <Compile Include="Flashlight.cs" />
     <Compile Include="Holster.cs" />
     <Compile Include="Clothing.cs" />

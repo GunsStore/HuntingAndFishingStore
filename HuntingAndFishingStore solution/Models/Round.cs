@@ -16,6 +16,8 @@ namespace Models
 
         public int Id { get; set; }
 
+        public byte[] Image { get; set; }
+
         public double Caliber { get; set; }
 
         public string Name { get; set; }

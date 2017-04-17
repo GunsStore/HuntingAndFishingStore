@@ -1,0 +1,32 @@
+﻿@using Models.Dtos;
+@model ProductDto
+
+<li class="subMenu open">
+    <a> FIREARMS [230] </a>
+    <ul>
+        <li>@Html.ActionLink("Pistols", "ListFirearms", "Product", new { @Name = "Pistol"}, new { @class = " active" })</li>
+        <li>@Html.ActionLink("Shotguns", "ListFirearms", "Product", new { @Name = "Shotgun" }, new { @class = " active" })</li>
+        <li>@Html.ActionLink("Rifles", "ListFirearms", "Product", new { @Name = "Rifle" }, new { @class = " active" })</li>
+        <li>@Html.ActionLink("Submachine guns", "ListFirearms", "Product", new { @Name = "Submachine gun" }, new { @class = " active" })</li>
+    </ul>
+</li>
+<li class="subMenu">
+    <a> CLOTHES [840] </a>
+    <ul style="display: none">
+        <li>@Html.ActionLink("Shirts", "ListClothing", "Product", new { @Name = "Shirt" }, new { @class = "active" })</li>
+        <li>@Html.ActionLink("Pants", "ListClothing", "Product", new { @Name = "Pants" }, new { @class = "active" })</li>
+        <li>@Html.ActionLink("Shoes", "ListClothing", "Product", new { @Name = "Shoes" }, new { @class = "active" })</li>
+        <li>@Html.ActionLink("Hunting gear", "ListClothing", "Product", new { @Name = "Hunting" }, new { @class = "active" })</li>
+    </ul>
+</li>
+<li class="subMenu">
+    <a>ACCESSORIES [1000]</a>
+    <ul style="display: none">
+        <li>@Html.ActionLink("Holsters", "ListHolsters", "Product", null, new { @class = "active" })</li>
+        <li>@Html.ActionLink("Scopes", "ListScopes", "Product", null, new { @class = "active" })</li>
+        <li>@Html.ActionLink("Ammunition", "ListAmmunition", "Product", null, new { @class = "active" })</li>
+        <li>@Html.ActionLink("Knives", "ListKnives", "Product", null, new { @class = "active" })</li>
+        <li>@Html.ActionLink("Tazers", "ListTazers", "Product", null, new { @class = "active" })</li>
+        <li>@Html.ActionLink("Batons", "ListBatons", "Product", null, new { @class = "active" })</li>
+    </ul>
+</li>
