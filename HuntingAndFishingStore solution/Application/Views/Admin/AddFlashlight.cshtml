@@ -1,4 +1,4 @@
-﻿@model Models.Flashlight
+﻿@model Models.Dtos.FlashlightDTO
 
 @{
     ViewBag.Title = "AddFlashlight";
@@ -7,7 +7,7 @@
 
 <h2>AddFlashlight</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("AddFlashlight", "Admin", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -23,21 +23,12 @@
             </div>
         </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.Image, new { @class = "control-label col-sm-4" })
-            <div class="col-sm-4">
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <span class="btn btn-default btn-file">
-                            Browse… <input type="file" id="image1" name="image1">
-                        </span>
-                    </span>
-                    <input type="text" class="form-control" readonly>
-                </div>
-                <img id='img-upload' />
+        <div class="form-group">
+            @Html.LabelFor(m => m.Image, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Image, new { type = "file" })
             </div>
-        </div>*@
-
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Data;
 using Models;
@@ -43,7 +41,7 @@ namespace Application.Controllers
 
         public ActionResult AdminIndex()
         {
-            if (Session["Email"]==null)
+            if (Session["Email"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -62,6 +60,8 @@ namespace Application.Controllers
 
         #endregion
 
+        //AddingProducts
+
         public ActionResult AddProduct()
         {
             return View();
@@ -74,16 +74,30 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddBaton(Baton baton)
+        public ActionResult AddBaton(BatonDTO batonDto)
         {
             using (var db = new GunStoreContext())
             {
                 if (ModelState.IsValid)
                 {
+                    var baton = new Baton()
+                    {
+                        Name = batonDto.Name,
+                        Description = batonDto.Description,
+                        Price = batonDto.Price,
+                        Quantity = batonDto.Quantity,
+                        Weight = batonDto.Weight
+
+                    };
+                    if (batonDto.Image != null)
+                    {
+                        baton.Image = new byte[batonDto.Image.ContentLength];
+                        batonDto.Image.InputStream.Read(baton.Image, 0, batonDto.Image.ContentLength);
+                    }
                     db.Batons.Add(baton);
                     db.SaveChanges();
                     ModelState.Clear();
-                    return RedirectToAction("AddProduct","Admin");
+                    return RedirectToAction("AddProduct", "Admin");
                 }
                 ModelState.AddModelError("baton", "Invalid baton added");
                 return View();
@@ -97,12 +111,25 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddClothing(Clothing clothing)
+        public ActionResult AddClothing(ClothingDTO clothingDto)
         {
             using (var db = new GunStoreContext())
             {
                 if (ModelState.IsValid)
                 {
+                    var clothing = new Clothing()
+                    {
+                        Name = clothingDto.Name,
+                        Description = clothingDto.Description,
+                        Price = clothingDto.Price,
+                        Quantity = clothingDto.Quantity,
+                        Size = clothingDto.Size
+                    };
+                    if (clothingDto.Image != null)
+                    {
+                        clothing.Image = new byte[clothingDto.Image.ContentLength];
+                        clothingDto.Image.InputStream.Read(clothing.Image, 0, clothingDto.Image.ContentLength);
+                    }
                     db.Clothes.Add(clothing);
                     db.SaveChanges();
                     ModelState.Clear();
@@ -120,12 +147,26 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddFirearm(Firearm firearm)
+        public ActionResult AddFirearm(FirearmDTO firearmDto)
         {
             using (var db = new GunStoreContext())
             {
                 if (ModelState.IsValid)
                 {
+                    var firearm = new Firearm()
+                    {
+                        Name = firearmDto.Name,
+                        Description = firearmDto.Description,
+                        Price = firearmDto.Price,
+                        Quantity = firearmDto.Quantity,
+                        Model = firearmDto.Model
+
+                    };
+                    if (firearmDto.Image != null)
+                    {
+                        firearm.Image = new byte[firearmDto.Image.ContentLength];
+                        firearmDto.Image.InputStream.Read(firearm.Image, 0, firearmDto.Image.ContentLength);
+                    }
                     db.Firearms.Add(firearm);
                     db.SaveChanges();
                     ModelState.Clear();
@@ -143,17 +184,24 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddFlashlight(Flashlight flashlight, HttpPostedFileBase image)
+        public ActionResult AddFlashlight(FlashlightDTO flashlightDTO)
         {
             using (var db = new GunStoreContext())
             {
                 if (ModelState.IsValid)
                 {
-                    if (flashlight != null)
+                    var flashlight = new Flashlight()
                     {
-
-                        flashlight.Image = new byte[image.ContentLength];
-                        image.InputStream.Read(flashlight.Image, 0, image.ContentLength);
+                        Name = flashlightDTO.Name,
+                        Description = flashlightDTO.Description,
+                        Price = flashlightDTO.Price,
+                        Quantity = flashlightDTO.Quantity,
+                        BatteryType = flashlightDTO.BatteryType
+                    };
+                    if (flashlightDTO.Image != null)
+                    {
+                        flashlight.Image = new byte[flashlightDTO.Image.ContentLength];
+                        flashlightDTO.Image.InputStream.Read(flashlight.Image, 0, flashlightDTO.Image.ContentLength);
                     }
                     db.Flashlights.Add(flashlight);
                     db.SaveChanges();
@@ -172,12 +220,25 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddHolster(Holster holster)
+        public ActionResult AddHolster(HolsterDTO holsterDto)
         {
             using (var db = new GunStoreContext())
             {
                 if (ModelState.IsValid)
                 {
+                    var holster = new Holster()
+                    {
+                        Name = holsterDto.Name,
+                        Description = holsterDto.Description,
+                        Price = holsterDto.Price,
+                        Quantity = holsterDto.Quantity,
+
+                    };
+                    if (holsterDto.Image != null)
+                    {
+                        holster.Image = new byte[holsterDto.Image.ContentLength];
+                        holsterDto.Image.InputStream.Read(holster.Image, 0, holsterDto.Image.ContentLength);
+                    }
                     db.Holsters.Add(holster);
                     db.SaveChanges();
                     ModelState.Clear();
@@ -195,12 +256,27 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddKnife(Knife knife)
+        public ActionResult AddKnife(KnifeDTO knifeDto)
         {
             using (var db = new GunStoreContext())
             {
                 if (ModelState.IsValid)
                 {
+                    var knife = new Knife()
+                    {
+                        Name = knifeDto.Name,
+                        Description = knifeDto.Description,
+                        Price = knifeDto.Price,
+                        Quantity = knifeDto.Quantity,
+                        Length = knifeDto.Length,
+                        Width = knifeDto.Width
+
+                    };
+                    if (knifeDto.Image != null)
+                    {
+                        knife.Image = new byte[knifeDto.Image.ContentLength];
+                        knifeDto.Image.InputStream.Read(knife.Image, 0, knifeDto.Image.ContentLength);
+                    }
                     db.Knives.Add(knife);
                     db.SaveChanges();
                     ModelState.Clear();
@@ -218,12 +294,26 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddRound(Round round)
+        public ActionResult AddRound(RoundDTO roundDto)
         {
             using (var db = new GunStoreContext())
             {
                 if (ModelState.IsValid)
                 {
+                    var round = new Round()
+                    {
+                        Name = roundDto.Name,
+                        Description = roundDto.Description,
+                        Price = roundDto.Price,
+                        Quantity = roundDto.Quantity,
+                        Caliber = roundDto.Caliber
+
+                    };
+                    if (roundDto.Image != null)
+                    {
+                        round.Image = new byte[roundDto.Image.ContentLength];
+                        roundDto.Image.InputStream.Read(round.Image, 0, roundDto.Image.ContentLength);
+                    }
                     db.Rounds.Add(round);
                     db.SaveChanges();
                     ModelState.Clear();
@@ -241,12 +331,26 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddScope(Scope scope)
+        public ActionResult AddScope(ScopeDTO scopeDto)
         {
             using (var db = new GunStoreContext())
             {
                 if (ModelState.IsValid)
                 {
+                    var scope = new Scope()
+                    {
+                        Name = scopeDto.Name,
+                        Description = scopeDto.Description,
+                        Price = scopeDto.Price,
+                        Quantity = scopeDto.Quantity,
+
+                    };
+                    if (scopeDto.Image != null)
+                    {
+                        scope.Image = new byte[scopeDto.Image.ContentLength];
+                        scopeDto.Image.InputStream.Read(scope.Image, 0, scopeDto.Image.ContentLength);
+                    }
+
                     db.Scopes.Add(scope);
                     db.SaveChanges();
                     ModelState.Clear();
@@ -264,12 +368,27 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddTazer(Tazer tazer)
+        public ActionResult AddTazer(TazerDTO tazerDto)
         {
             using (var db = new GunStoreContext())
             {
                 if (ModelState.IsValid)
                 {
+                    var tazer = new Tazer()
+                    {
+                        Name = tazerDto.Name,
+                        Description = tazerDto.Description,
+                        Price = tazerDto.Price,
+                        Quantity = tazerDto.Quantity,
+                        Voltage = tazerDto.Voltage
+
+                    };
+                    if (tazerDto.Image != null)
+                    {
+                        tazer.Image = new byte[tazerDto.Image.ContentLength];
+                        tazerDto.Image.InputStream.Read(tazer.Image, 0, tazerDto.Image.ContentLength);
+                    }
+
                     db.Tazers.Add(tazer);
                     db.SaveChanges();
                     ModelState.Clear();
@@ -278,6 +397,13 @@ namespace Application.Controllers
                 ModelState.AddModelError("tazer", "Invalid tazer added");
                 return View();
             }
+        }
+
+        //RemovingProducts
+
+        public ActionResult RemoveProduct()
+        {
+            return View();
         }
     }
 }

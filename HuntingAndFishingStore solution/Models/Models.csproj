@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,8 +55,17 @@
     <Compile Include="Category.cs" />
     <Compile Include="BasketClothing.cs" />
     <Compile Include="Dtos\AdminDto.cs" />
+    <Compile Include="Dtos\BatonDTO.cs" />
+    <Compile Include="Dtos\ClothingDTO.cs" />
+    <Compile Include="Dtos\FirearmDTO.cs" />
+    <Compile Include="Dtos\FlashlightDTO.cs" />
+    <Compile Include="Dtos\HolsterDTO.cs" />
+    <Compile Include="Dtos\KnifeDTO.cs" />
     <Compile Include="Dtos\LoginDto.cs" />
     <Compile Include="Dtos\ProductDto.cs" />
+    <Compile Include="Dtos\RoundDTO.cs" />
+    <Compile Include="Dtos\ScopeDTO.cs" />
+    <Compile Include="Dtos\TazerDTO.cs" />
     <Compile Include="Flashlight.cs" />
     <Compile Include="Holster.cs" />
     <Compile Include="Clothing.cs" />
