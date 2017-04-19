@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models
 {
@@ -24,6 +25,8 @@ namespace Models
         public int Quantity { get; set; }
 
         public virtual Category Category { get; set; }
+        
+        public int CategoryId { get; set; }
 
         public ICollection<Firearm> Firearms { get; set; }
 
