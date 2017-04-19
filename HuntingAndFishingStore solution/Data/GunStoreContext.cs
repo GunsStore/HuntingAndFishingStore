@@ -12,7 +12,7 @@ namespace Data
         {
             //Database.SetInitializer(new DropCreateDatabaseAlways<GunStoreContext>());
         }
-        
+
         public virtual DbSet<Category> Categories { get; set; }
 
         public virtual DbSet<Baton> Batons { get; set; }
@@ -62,15 +62,9 @@ namespace Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new OrderConfiguration());
-            //modelBuilder.Entity<Basket>().HasMany(b => b.Batons).WithMany(b => b.Baskets).Map(m =>
-            //{
-            //    m.MapLeftKey("BasketId");
-            //    m.MapRightKey("BatonId");
-            //    m.ToTable("BatonBaskets");
-            //});
-        base.
 
-        OnModelCreating(modelBuilder);
+            base.
+                OnModelCreating(modelBuilder);
         }
     }
 }

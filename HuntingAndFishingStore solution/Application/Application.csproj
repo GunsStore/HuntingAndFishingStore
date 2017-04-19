@@ -140,6 +140,14 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootshop\bootstrap.min.css" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js\bootshop.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\js\jquery.js" />
@@ -209,6 +217,15 @@
     <Content Include="Views\Admin\RemoveScope.cshtml" />
     <Content Include="Views\Admin\RemoveTazer.cshtml" />
     <Content Include="Views\Admin\AdminIndex.cshtml" />
+    <Content Include="Views\Product\ListFirearms.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Product\ListClothing.cshtml" />
+    <Content Include="Views\Product\ListHolsters.cshtml" />
+    <Content Include="Views\Product\ListScopes.cshtml" />
+    <Content Include="Views\Product\ListKnives.cshtml" />
+    <Content Include="Views\Product\ListAmmunition.cshtml" />
+    <Content Include="Views\Product\ListTazers.cshtml" />
+    <Content Include="Views\Product\ListBatons.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -218,7 +235,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

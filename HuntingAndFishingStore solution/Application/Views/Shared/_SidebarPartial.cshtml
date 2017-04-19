@@ -2,7 +2,7 @@
 @model ProductDto
 
 <li class="subMenu open">
-    <a> FIREARMS [230] </a>
+    <a> FIREARMS</a>
     <ul>
         <li>@Html.ActionLink("Pistols", "ListFirearms", "Product", new { @Name = "Pistol"}, new { @class = " active" })</li>
         <li>@Html.ActionLink("Shotguns", "ListFirearms", "Product", new { @Name = "Shotgun" }, new { @class = " active" })</li>
@@ -11,7 +11,7 @@
     </ul>
 </li>
 <li class="subMenu">
-    <a> CLOTHES [840] </a>
+    <a> CLOTHES </a>
     <ul style="display: none">
         <li>@Html.ActionLink("Shirts", "ListClothing", "Product", new { @Name = "Shirt" }, new { @class = "active" })</li>
         <li>@Html.ActionLink("Pants", "ListClothing", "Product", new { @Name = "Pants" }, new { @class = "active" })</li>
@@ -20,7 +20,7 @@
     </ul>
 </li>
 <li class="subMenu">
-    <a>ACCESSORIES [1000]</a>
+    <a>ACCESSORIES</a>
     <ul style="display: none">
         <li>@Html.ActionLink("Holsters", "ListHolsters", "Product", null, new { @class = "active" })</li>
         <li>@Html.ActionLink("Scopes", "ListScopes", "Product", null, new { @class = "active" })</li>

@@ -54,13 +54,37 @@ namespace Application.Controllers
         {
             using (var context = new GunStoreContext())
             {
-                
                 return View(context.Users.ToList());
             }
         }
-        
 
-        //AddingProducts
+        public ActionResult RemoveUser(int id)
+        {
+            using (var context = new GunStoreContext())
+            {
+                var user = context.Users.Find(id);
+
+                if (user != null)
+                {
+                    foreach (var userBasket in user.Baskets)
+                    {
+                        context.Baskets.Remove(userBasket);
+                    }
+
+                    foreach (var userOrder in user.Orders)
+                    {
+                        context.Orders.Remove(userOrder);
+                    }
+
+                    context.Users.Remove(user);
+                }
+                context.SaveChanges();
+            }
+            return RedirectToAction("GetUsers");
+        }
+
+
+        #region AddingProducts
 
         public ActionResult AddProduct()
         {
@@ -399,7 +423,10 @@ namespace Application.Controllers
             }
         }
 
-        //RemovingProducts
+        #endregion
+
+
+        #region RemovingProducts
 
         public ActionResult RemoveProduct()
         {
@@ -595,5 +622,7 @@ namespace Application.Controllers
 
             }
         }
+
+        #endregion
     }
 }
