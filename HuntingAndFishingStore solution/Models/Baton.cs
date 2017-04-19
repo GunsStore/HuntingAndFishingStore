@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace Models
     {
         public Baton()
         {
-            BatonBaskets = new HashSet<BasketBaton>();    
+            BatonBaskets = new HashSet<BasketBaton>();
         }
 
         public int Id { get; set; }
@@ -18,7 +19,7 @@ namespace Models
         public string Name { get; set; }
 
         public byte[] Image { get; set; }
-
+        
         public string Description { get; set; }
 
         public decimal Price { get; set; }

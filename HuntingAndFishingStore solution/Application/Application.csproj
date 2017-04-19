@@ -188,6 +188,16 @@
     <Content Include="Views\Admin\AdminIndex.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_SidebarPartial.cshtml" />
+    <Content Include="Views\Admin\AddProduct.cshtml" />
+    <Content Include="Views\Admin\AddBaton.cshtml" />
+    <Content Include="Views\Admin\AddClothing.cshtml" />
+    <Content Include="Views\Admin\AddFirearm.cshtml" />
+    <Content Include="Views\Admin\AddFlashlight.cshtml" />
+    <Content Include="Views\Admin\AddHolster.cshtml" />
+    <Content Include="Views\Admin\AddKnife.cshtml" />
+    <Content Include="Views\Admin\AddRound.cshtml" />
+    <Content Include="Views\Admin\AddScope.cshtml" />
+    <Content Include="Views\Admin\AddTazer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
