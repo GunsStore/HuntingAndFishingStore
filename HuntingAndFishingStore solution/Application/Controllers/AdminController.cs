@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using Data;
 using Models;
 using Models.Dtos;
+using System.Data.Entity;
 
 namespace Application.Controllers
 {
@@ -45,20 +46,19 @@ namespace Application.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            return View(GetUsers());
+            return View();
         }
+       
 
-        #region SupportMethods
-
-        private static List<User> GetUsers()
+        public ActionResult GetUsers()
         {
             using (var context = new GunStoreContext())
             {
-                return context.Users.ToList();
+                
+                return View(context.Users.ToList());
             }
         }
-
-        #endregion
+        
 
         //AddingProducts
 
@@ -404,6 +404,196 @@ namespace Application.Controllers
         public ActionResult RemoveProduct()
         {
             return View();
+        }
+        
+        public ActionResult RemoveBaton(int? id)
+        {
+            using (var db = new GunStoreContext())
+            {
+                if (id != null)
+                {
+                    Baton baton = db.Batons.Include(b => b.BatonBaskets).Where(b => b.Id == id).Single<Baton>();
+                    foreach (var item in baton.BatonBaskets)
+                    {
+                        db.BasketBatons.Remove(item);
+                    }
+                    db.Batons.Remove(baton);
+                    db.SaveChanges();                    
+                }
+                
+                List<Baton> batons = db.Batons.ToList();
+                return View(batons);
+
+            }
+        }
+
+        public ActionResult RemoveClothing(int? id)
+        {
+            using (var db = new GunStoreContext())
+            {
+                if (id != null)
+                {
+                    Clothing clothing = db.Clothes.Include(b => b.BasketClothings).Where(b => b.Id == id).Single<Clothing>();
+                    foreach (var item in clothing.BasketClothings)
+                    {
+                        db.BasketClothings.Remove(item);
+                    }
+                    db.Clothes.Remove(clothing);
+                    db.SaveChanges();
+                }
+
+                List<Clothing> clothings = db.Clothes.ToList();
+                return View(clothings);
+
+            }
+        }
+
+
+        public ActionResult RemoveFirearm(int? id)
+        {
+            using (var db = new GunStoreContext())
+            {
+                if (id != null)
+                {
+                    Firearm firearm = db.Firearms.Include(b => b.BasketFirearms).Where(b => b.Id == id).Single<Firearm>();
+                    foreach (var item in firearm.BasketFirearms)
+                    {
+                        db.BasketFirearms.Remove(item);
+                    }
+                    db.Firearms.Remove(firearm);
+                    db.SaveChanges();
+                }
+
+                List<Firearm> firearms = db.Firearms.ToList();
+                return View(firearms);
+
+            }
+        }
+
+        public ActionResult RemoveFlashlight(int? id)
+        {
+            using (var db = new GunStoreContext())
+            {
+                if (id != null)
+                {
+                    Flashlight flashlight = db.Flashlights.Include(b => b.BasketFlashlights).Where(b => b.Id == id).Single<Flashlight>();
+                    foreach (var item in flashlight.BasketFlashlights)
+                    {
+                        db.BasketFlashlights.Remove(item);
+                    }
+                    db.Flashlights.Remove(flashlight);
+                    db.SaveChanges();
+                }
+
+                List<Flashlight> flashlights = db.Flashlights.ToList();
+                return View(flashlights);
+
+            }
+        }
+
+        public ActionResult RemoveHolster(int? id)
+        {
+            using (var db = new GunStoreContext())
+            {
+                if (id != null)
+                {
+                    Holster holster = db.Holsters.Include(b => b.BasketHolsters).Where(b => b.Id == id).Single<Holster>();
+                    foreach (var item in holster.BasketHolsters)
+                    {
+                        db.BasketHolsters.Remove(item);
+                    }
+                    db.Holsters.Remove(holster);
+                    db.SaveChanges();
+                }
+
+                List<Holster> holsters = db.Holsters.ToList();
+                return View(holsters);
+
+            }
+        }
+
+        public ActionResult RemoveKnife(int? id)
+        {
+            using (var db = new GunStoreContext())
+            {
+                if (id != null)
+                {
+                    Knife knife = db.Knives.Include(b => b.BasketKnives).Where(b => b.Id == id).Single<Knife>();
+                    foreach (var item in knife.BasketKnives)
+                    {
+                        db.BasketKnives.Remove(item);
+                    }
+                    db.Knives.Remove(knife);
+                    db.SaveChanges();
+                }
+
+                List<Knife> knives = db.Knives.ToList();
+                return View(knives);
+
+            }
+        }
+
+        public ActionResult RemoveRound(int? id)
+        {
+            using (var db = new GunStoreContext())
+            {
+                if (id != null)
+                {
+                    Round round = db.Rounds.Include(b => b.BasketRounds).Where(b => b.Id == id).Single<Round>();
+                    foreach (var item in round.BasketRounds)
+                    {
+                        db.BasketRounds.Remove(item);
+                    }
+                    db.Rounds.Remove(round);
+                    db.SaveChanges();
+                }
+
+                List<Round> rounds = db.Rounds.ToList();
+                return View(rounds);
+
+            }
+        }
+
+        public ActionResult RemoveScope(int? id)
+        {
+            using (var db = new GunStoreContext())
+            {
+                if (id != null)
+                {
+                    Scope scope = db.Scopes.Include(b => b.BasketScopes).Where(b => b.Id == id).Single<Scope>();
+                    foreach (var item in scope.BasketScopes)
+                    {
+                        db.BasketScopes.Remove(item);
+                    }
+                    db.Scopes.Remove(scope);
+                    db.SaveChanges();
+                }
+
+                List<Scope> scopes = db.Scopes.ToList();
+                return View(scopes);
+
+            }
+        }
+
+        public ActionResult RemoveTazer(int? id)
+        {
+            using (var db = new GunStoreContext())
+            {
+                if (id != null)
+                {
+                    Tazer tazer = db.Tazers.Include(b => b.BasketTazers).Where(b => b.Id == id).Single<Tazer>();
+                    foreach (var item in tazer.BasketTazers)
+                    {
+                        db.BasketTazers.Remove(item);
+                    }
+                    db.Tazers.Remove(tazer);
+                    db.SaveChanges();
+                }
+
+                List<Tazer> tazers = db.Tazers.ToList();
+                return View(tazers);
+
+            }
         }
     }
 }

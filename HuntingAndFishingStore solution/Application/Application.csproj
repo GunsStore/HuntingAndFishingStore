@@ -185,7 +185,7 @@
     <Content Include="Views\Home\LoggedinUserIndex.cshtml" />
     <Content Include="Views\Admin\AdminLogin.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Admin\AdminIndex.cshtml" />
+    <Content Include="Views\Admin\GetUsers.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_SidebarPartial.cshtml" />
     <Content Include="Views\Admin\AddProduct.cshtml" />
@@ -199,6 +199,16 @@
     <Content Include="Views\Admin\AddScope.cshtml" />
     <Content Include="Views\Admin\AddTazer.cshtml" />
     <Content Include="Views\Admin\RemoveProduct.cshtml" />
+    <Content Include="Views\Admin\RemoveBaton.cshtml" />
+    <Content Include="Views\Admin\RemoveClothing.cshtml" />
+    <Content Include="Views\Admin\RemoveFirearm.cshtml" />
+    <Content Include="Views\Admin\RemoveFlashlight.cshtml" />
+    <Content Include="Views\Admin\RemoveHolster.cshtml" />
+    <Content Include="Views\Admin\RemoveKnife.cshtml" />
+    <Content Include="Views\Admin\RemoveRound.cshtml" />
+    <Content Include="Views\Admin\RemoveScope.cshtml" />
+    <Content Include="Views\Admin\RemoveTazer.cshtml" />
+    <Content Include="Views\Admin\AdminIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

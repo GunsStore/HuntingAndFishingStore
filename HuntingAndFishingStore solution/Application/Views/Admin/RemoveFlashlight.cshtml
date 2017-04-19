@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Models.Flashlight>
+
+@{
+    ViewBag.Title = "RemoveFlashlight";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>RemoveFlashlight</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddFlashlight")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BatteryType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @if (item.Image != null)
+            {
+                var base64 = Convert.ToBase64String(item.Image);
+                var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+                <img src="@imgsrc" style="width:480px; height:360px" />
+            }
+            else
+            {
+                <img src="https://www.google.bg/search?q=no+image&client=firefox-b-ab&tbm=isch&imgil=9e9JeDQI0DBZrM%253A%253B029W-ajBtZqZzM%253Bhttps%25253A%25252F%25252Fen.wikipedia.org%25252Fwiki%25252FFile%25253ANo_image_available.svg&source=iu&pf=m&fir=9e9JeDQI0DBZrM%253A%252C029W-ajBtZqZzM%252C_&usg=__tIbk1ot4Lp3GTqKzQsHITu6FpoI%3D&biw=1366&bih=604&ved=0ahUKEwi-_uv297DTAhXMCywKHSSFAjkQyjcIOw&ei=24_3WP6kLsyXsAGkiorIAw" style="width:200px; height:100px" />
+            }
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BatteryType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "RemoveFlashlight", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
