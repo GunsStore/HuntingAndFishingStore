@@ -6,8 +6,6 @@
     {
         public HttpPostedFileBase Image { get; set; }
 
-        public virtual Category Category { get; set; }
-
         public string Name { get; set; }
 
         public decimal Price { get; set; }

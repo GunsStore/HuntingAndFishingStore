@@ -12,8 +12,7 @@ namespace Data
         {
             //Database.SetInitializer(new DropCreateDatabaseAlways<GunStoreContext>());
         }
-
-        public virtual DbSet<Category> Categories { get; set; }
+        
 
         public virtual DbSet<Baton> Batons { get; set; }
 
@@ -62,14 +61,7 @@ namespace Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new OrderConfiguration());
-            modelBuilder.Entity<Category>()
-                .HasMany(c => c.Rounds)
-                .WithRequired(c => c.Category)
-                .HasForeignKey(c => c.CategoryId).WillCascadeOnDelete(false);
-            modelBuilder.Entity<Category>()
-                .HasMany(c => c.Scopes)
-                .WithRequired(c => c.Category)
-                .HasForeignKey(c => c.CategoryId).WillCascadeOnDelete(false);
+           
 
             base.
                 OnModelCreating(modelBuilder);

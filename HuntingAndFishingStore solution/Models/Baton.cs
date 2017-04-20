@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Models
 {
@@ -26,9 +21,7 @@ namespace Models
 
         public double Weight { get; set; }
         public int Quantity { get; set; }
-
-        public virtual Category Category { get; set; }
-        public int CategoryId { get; set; }
+        
 
         public virtual ICollection<BasketBaton> BatonBaskets { get; set; }
     }

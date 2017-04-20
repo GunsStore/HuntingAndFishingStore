@@ -23,9 +23,7 @@ namespace Models
 
         public double Width { get; set; }
         public int Quantity { get; set; }
-
-        public virtual Category Category { get; set; }
-        public int CategoryId { get; set; }
+        
 
         public virtual ICollection<BasketKnife> BasketKnives { get; set; }
     }

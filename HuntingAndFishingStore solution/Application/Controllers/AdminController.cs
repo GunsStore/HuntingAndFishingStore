@@ -82,8 +82,7 @@ namespace Application.Controllers
             }
             return RedirectToAction("GetUsers");
         }
-
-
+        
         #region AddingProducts
 
         public ActionResult AddProduct()
@@ -147,7 +146,9 @@ namespace Application.Controllers
                         Description = clothingDto.Description,
                         Price = clothingDto.Price,
                         Quantity = clothingDto.Quantity,
-                        Size = clothingDto.Size
+                        Size = clothingDto.Size,
+                        Category = clothingDto.Category
+                        
                     };
                     if (clothingDto.Image != null)
                     {
@@ -183,8 +184,8 @@ namespace Application.Controllers
                         Description = firearmDto.Description,
                         Price = firearmDto.Price,
                         Quantity = firearmDto.Quantity,
-                        Model = firearmDto.Model
-
+                        Model = firearmDto.Model,
+                        Category = firearmDto.Category
                     };
                     if (firearmDto.Image != null)
                     {

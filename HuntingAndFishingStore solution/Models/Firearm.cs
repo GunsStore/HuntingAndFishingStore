@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    
     public class Firearm
     {
         public Firearm()
@@ -26,17 +27,16 @@ namespace Models
         public decimal Price { get; set; }
 
         public string Model { get; set; }
+
         public int Quantity { get; set; }
 
-        public virtual Category Category { get; set; }
-        public int CategoryId { get; set; }
+        public string Category { get; set; }
 
         public virtual ICollection<Round> Rounds { get; set; }
 
         public virtual ICollection<Scope> Scopes { get; set; }
 
         public virtual ICollection<BasketFirearm> BasketFirearms { get; set; }
-
-
+        
     }
 }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Models
 {
+
     public class Clothing
     {
         public Clothing()
@@ -25,9 +21,10 @@ namespace Models
         public decimal Price { get; set; }
 
         public char Size { get; set; }
+
         public int Quantity { get; set; }
-        public virtual Category Category { get; set; }
-        public int CategoryId { get; set; }
+
+        public string Category { get; set; }
 
         public virtual ICollection<BasketClothing> BasketClothings { get; set; }
 

@@ -52,7 +52,6 @@
     <Compile Include="BasketScope.cs" />
     <Compile Include="BasketTazer.cs" />
     <Compile Include="Baton.cs" />
-    <Compile Include="Category.cs" />
     <Compile Include="BasketClothing.cs" />
     <Compile Include="Dtos\AdminDto.cs" />
     <Compile Include="Dtos\BatonDTO.cs" />

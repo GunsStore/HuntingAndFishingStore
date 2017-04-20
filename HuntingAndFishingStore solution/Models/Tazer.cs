@@ -11,10 +11,7 @@ namespace Models
         }
 
         public int Id { get; set; }
-
-        public virtual Category Category { get; set; }
-        public int CategoryId { get; set; }
-
+        
         public byte[] Image { get; set; }
 
         public string Name { get; set; }
